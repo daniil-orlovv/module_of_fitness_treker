@@ -20,9 +20,6 @@ class InfoMessage:
                 f'Потрачено ккал: {self.calories:.3f}.')
 
 
-
-
-
 class Training:
     """Базовый класс тренировки."""
     LEN_STEP: float = 0.65
@@ -71,7 +68,7 @@ class Running(Training):
 
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
-    CALORIES_WEIGHT_MULTIPLIER : float = 0.035
+    CALORIES_WEIGHT_MULTIPLIER: float = 0.035
     CALORIES_SPEED_HEIGHT_MULTIPLIER: float = 0.029
 
     def __init__(self,
@@ -84,9 +81,10 @@ class SportsWalking(Training):
         self.height = height
 
     def get_spent_calories(self) -> float:
-        return (self.CALORIES_WEIGHT_MULTIPLIER  * self.weight
-                + (((self.get_mean_speed() / 3.6)) * self.CALORIES_SPEED_HEIGHT_MULTIPLIER
-                    * self.weight) * (self.duration * 60))
+        return (self.CALORIES_WEIGHT_MULTIPLIER * self.weight
+                + (((self.get_mean_speed() / 3.6))
+                   * self.CALORIES_SPEED_HEIGHT_MULTIPLIER
+                   * self.weight) * (self.duration * 60))
 
 
 class Swimming(Training):
@@ -108,7 +106,8 @@ class Swimming(Training):
         self.count_pool = count_pool
 
     def get_mean_speed(self) -> float:
-        return self.length_pool * self.count_pool / self.M_IN_KM / self.duration
+        return (self.length_pool * self.count_pool / self.M_IN_KM
+                / self.duration)
 
     def get_spent_calories(self) -> float:
         return ((self.get_mean_speed() + self.K_SWIM_1) * self.K_SWIM_2
