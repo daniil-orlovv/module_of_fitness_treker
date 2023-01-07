@@ -24,6 +24,7 @@ class Training:
     """Базовый класс тренировки."""
     LEN_STEP: float = 0.65
     M_IN_KM: int = 1000
+    MIN_IN_H = 60
 
     def __init__(self,
                  action: int,
@@ -71,7 +72,6 @@ class SportsWalking(Training):
     CALORIES_WEIGHT_MULTIPLIER: float = 0.035
     CALORIES_SPEED_HEIGHT_MULTIPLIER: float = 0.029
     KMH_IN_MSEC = 3.6
-    MIN_IN_H = 60
 
     def __init__(self,
                  action: int,
