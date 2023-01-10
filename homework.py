@@ -50,7 +50,7 @@ class Training:
     def get_spent_calories(self):
         raise NotImplementedError(
             'Определите get_spent_calories '
-            'в {self.__class__.__name__}')
+            f'в {self.__class__.__name__}')
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
