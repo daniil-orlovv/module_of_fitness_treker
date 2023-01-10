@@ -1,7 +1,5 @@
-from dataclasses import dataclass
-from dataclasses import asdict
-from typing import Type
-from typing import Dict
+from dataclasses import asdict, dataclass
+from typing import Dict, Type
 
 
 @dataclass
@@ -52,7 +50,7 @@ class Training:
     def get_spent_calories(self):
         raise NotImplementedError(
             'Определите get_spent_calories '
-            'в %s.' % (self.__class__.__name__))
+            'в {self.__class__.__name__}')
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -159,5 +157,5 @@ if __name__ == '__main__':
         try:
             training = read_package(workout_type, data)
             main(training)
-        except LookupError:
+        except KeyError:
             print(f'Такой тренировки не существует: {workout_type}, {data}')
